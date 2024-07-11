@@ -1,118 +1,255 @@
-.popap {
-    display: none;
-}
+// .popap {
+//     display: none;
+// }
 
-.overlay {
+// .overlay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100vh;
+//     background: #0004;
+//     z-index: 100;
+//     opacity: 0;
+//     animation: overlay .5s ease 0s forwards;
+// }
+
+// @keyframes overlay {
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+// .model {
+//     padding: 20px;
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -70%) scale(.8);
+//     width: 350px;
+//     min-height: 400px;
+//     background: #fff;
+//     z-index: 101;
+//     box-shadow: 0 0 25px #0005;
+//     opacity: 0;
+//     animation: model .2s ease 0s forwards;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+//     .texts{
+//     width: 100%;
+//     display: flex;
+//     border: 1px solid #000;
+//     input{
+//         outline: none;
+//         border: none;
+//     }
+//     .openeye{
+//         width: 20%;
+//         border: none;
+//         background: transparent;
+//         &:hover{
+//             cursor: pointer;
+//         }
+//     }
+//     .backeye{
+//         width: 20%;
+//         border: none;
+//         background: transparent;
+//         display: none;
+//         &:hover{
+//             cursor: pointer;
+//         }
+//     }
+// }
+//     button,
+//     input {
+//         padding: 10px;
+//         width: 100%;
+//         height: 38px;
+//     }
+// }
+
+// @keyframes model {
+//     to {
+//         opacity: 1;
+//         transform: translate(-50%, -50%) scale(1);
+//     }
+// }
+
+// .hero {
+//     width: 100%;
+//     padding: 30px 0;
+
+//     .login {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 20px;
+//         align-items: center;
+
+//         button,
+//         input {
+//             padding: 10px;
+//             width: 300px;
+//             height: 48px;
+//         }
+//     }
+// }
+// .wrapper{
+//  padding: 50px;
+//  display: flex;
+//  flex-wrap: wrap;
+//  gap: 14px;
+//  .card{
+//     width: 280px;
+//     height: 350px;
+//     border: 1px solid red;
+//     padding: 20px;
+//     text-align: center;
+//     list-style: 1.8;
+//     .card__circle{
+//         width: 150px;
+//         height: 150px;
+//         background: #ddd;
+//         border-radius: 50%;
+//         margin: auto;
+//     }
+//  }
+// }
+
+$primary-color: #000;
+$secondary-color: #ddd;
+$overlay-bg: rgba(0, 0, 0, 0.25);
+$box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+$input-padding: 10px;
+$input-height: 38px;
+$button-width: 100%;
+$button-height: 48px;
+$modal-width: 350px;
+$modal-min-height: 400px;
+
+.popap {
+  display: none;
+
+  .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #0004;
+    background: $overlay-bg;
     z-index: 100;
     opacity: 0;
-    animation: overlay .5s ease 0s forwards;
-}
+    animation: overlay 0.5s ease 0s forwards;
+  }
 
-@keyframes overlay {
-    to {
-        opacity: 1;
-    }
-}
-
-.model {
+  .model {
     padding: 20px;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -70%) scale(.8);
-    width: 350px;
-    min-height: 400px;
+    transform: translate(-50%, -70%) scale(0.8);
+    width: $modal-width;
+    min-height: $modal-min-height;
     background: #fff;
     z-index: 101;
-    box-shadow: 0 0 25px #0005;
+    box-shadow: $box-shadow;
     opacity: 0;
-    animation: model .2s ease 0s forwards;
+    animation: model 0.2s ease 0s forwards;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    .texts{
-    width: 100%;
-    display: flex;
-    border: 1px solid #000;
-    input{
+
+    .texts {
+      width: 100%;
+      display: flex;
+      border: 1px solid $primary-color;
+
+      input {
+        flex-grow: 1;
+        outline: none;
         border: none;
-    }
-    .openeye{
+        padding: $input-padding;
+      }
+
+      .openeye,
+      .backeye {
         width: 20%;
         border: none;
         background: transparent;
-        &:hover{
-            cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        i {
+          font-size: 1.2em;
         }
-    }
-    .backeye{
-        width: 20%;
-        border: none;
-        background: transparent;
+      }
+
+      .backeye {
         display: none;
-        &:hover{
-            cursor: pointer;
-        }
+      }
     }
-}
+
     button,
     input {
-        padding: 10px;
-        width: 100%;
-        height: 38px;
+      padding: $input-padding;
+      width: 100%;
+      height: $input-height;
     }
+  }
+}
+
+@keyframes overlay {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes model {
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .hero {
+  width: 100%;
+  padding: 30px 0;
+
+  .login {
     width: 100%;
-    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 
-    .login {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-
-        button,
-        input {
-            padding: 10px;
-            width: 300px;
-            height: 48px;
-        }
+    button,
+    input {
+      padding: $input-padding;
+      width: 300px;
+      height: $button-height;
     }
+  }
 }
-.wrapper{
- padding: 50px;
- display: flex;
- flex-wrap: wrap;
- gap: 14px;
- .card{
+
+.wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  .card {
     width: 280px;
     height: 350px;
-    border: 1px solid red;
     padding: 20px;
-    text-align: center;
-    list-style: 1.8;
-    .card__circle{
-        width: 150px;
-        height: 150px;
-        background: #ddd;
-        border-radius: 50%;
-        margin: auto;
+    .card__circle {
+      width: 150px;
+      height: 150px;
+      background: $secondary-color;
+      border-radius: 50%;
+      margin: auto;
     }
- }
+  }
 }
